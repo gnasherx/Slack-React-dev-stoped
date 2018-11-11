@@ -47,7 +47,7 @@ export const TitleContainer = styled.div`
   flex-direction: row;
   justify-content: ${props => props.justifyContent};
   align-items: center;
-  padding: 0px 20px 0 20px;
+  padding: 0px 16px 0 16px;
   vertical-align: middle;
   height: 30px;
   margin: 4px 0 8px 0;
