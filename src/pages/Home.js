@@ -17,7 +17,7 @@ const Home = () => {
       <div className="header box">
         <Header />
       </div>
-      <div className="messages box">
+      <div className="messages ">
         <ul className="message-list">
           <Messages />
         </ul>

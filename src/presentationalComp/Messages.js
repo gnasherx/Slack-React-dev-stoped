@@ -1,7 +1,14 @@
 import React from "react";
+import SingleMessage from "../SmallComponents/SingleMessage";
 
 const Messages = () => {
-  return <p>Messages</p>;
+  return (
+    <div>
+      <SingleMessage />
+      <SingleMessage />
+      <SingleMessage />
+    </div>
+  );
 };
 
 export default Messages;
