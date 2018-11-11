@@ -16,7 +16,7 @@ class Teams extends React.Component {
   render() {
     let teams = [...this.state.teams];
     let renderTeams = teams.map((team, index) => (
-      <TeamIcon name={team.teamName} />
+      <TeamIcon key={index} name={team.teamName} />
     ));
     return (
       <div>
