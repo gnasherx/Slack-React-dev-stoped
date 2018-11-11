@@ -19,14 +19,28 @@ const InputContainer = styled.input`
   &:hover {
     box-shadow: inset 0 0 0 1px #919193;
   }
+
+  &::-webkit-input-placeholder {
+    color: #a3a8ad;
+    font-weight: 400;
+    font-size: 18px;
+  }
 `;
 
-const InputBox = ({ name, inputType, value, onChange, marginBottom }) => {
+const InputBox = ({
+  name,
+  inputType,
+  value,
+  onChange,
+  marginBottom,
+  placeholder
+}) => {
   return (
     <InputContainer
       type={inputType}
       name={name}
       value={value}
+      placeholder={placeholder}
       onChange={onChange}
       marginBottom={marginBottom}
       innerRef={x => {

@@ -38,6 +38,7 @@ class SignIn extends React.Component {
             value={this.state.email}
             onChange={this.handleInputChange}
             marginBottom="20px"
+            placeholder=""
           />
           <Label title="Password" marginBottom="8px" />
           <InputBox
@@ -46,6 +47,7 @@ class SignIn extends React.Component {
             value={this.state.password}
             onChange={this.handleInputChange}
             marginBottom="20px"
+            placeholder=""
           />
           <CenterAlign>
             <Button>Get Started</Button>

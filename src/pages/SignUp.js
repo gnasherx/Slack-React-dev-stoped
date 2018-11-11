@@ -40,6 +40,7 @@ class SignUp extends React.Component {
             value={this.state.team}
             onChange={this.handleInputChange}
             marginBottom="20px"
+            placeholder=""
           />
           <Label title="Project name" marginBottom="8px" />
           <InputBox
@@ -56,6 +57,7 @@ class SignUp extends React.Component {
             value={this.state.email}
             onChange={this.handleInputChange}
             marginBottom="20px"
+            placeholder=""
           />
           <Label title="Password" marginBottom="8px" />
           <InputBox
@@ -64,6 +66,7 @@ class SignUp extends React.Component {
             value={this.state.password}
             onChange={this.handleInputChange}
             marginBottom="20px"
+            placeholder=""
           />
           <CenterAlign>
             <Button>Create Team</Button>

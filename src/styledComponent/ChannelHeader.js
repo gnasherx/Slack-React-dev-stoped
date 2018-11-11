@@ -41,6 +41,7 @@ export const ChannelTeamName = styled.h2`
 export const ChannelUsername = styled.p`
   color: #a3a8ad;
   margin: 0;
+  font-weight: 700;
   font-size: 14px;
   line-height: normal;
 
