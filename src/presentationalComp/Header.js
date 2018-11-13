@@ -8,10 +8,10 @@ import {
 import HashBlack from "../assets/icons/HashBlack.svg";
 import Star from "../assets/icons/Star.svg";
 import { Button } from "../containerComponent/Button";
+import { connect } from "react-redux";
+import { signOut } from "../store/actions/authActions";
 
-const signout = () => {};
-
-const Header = () => {
+const Header = props => {
   return (
     <HeaderContainer>
       <HeaderContent justifyContent="space-between">
@@ -26,11 +26,26 @@ const Header = () => {
           </HeaderContent>
         </div>
         <div>
-          <Button onClick={signout}>Signout</Button>
+          <Button onClick={props.signOut}>Signout</Button>
         </div>
       </HeaderContent>
     </HeaderContainer>
   );
 };
 
-export default Header;
+// const mapStateToProps = state => {
+//   return {
+//     auth: state.firebase.auth
+//   };
+// };
+
+const mapDispatchToProps = dispatch => {
+  return {
+    signOut: () => dispatch(signOut())
+  };
+};
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Header);

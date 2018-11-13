@@ -5,6 +5,9 @@ import Label from "../containerComponent/Label";
 import { Container, Card, CenterAlign } from "../styledComponent/style";
 import { H1 } from "../styledComponent/typography";
 import NavBar from "../presentationalComp/NavBar";
+import { connect } from "react-redux";
+import { signIn } from "../store/actions/authActions";
+import { Redirect } from "react-router-dom";
 
 class SignIn extends React.Component {
   constructor(props) {
@@ -25,9 +28,21 @@ class SignIn extends React.Component {
 
   login(e) {
     e.preventDefault();
+    this.props.signIn({
+      email: this.state.email,
+      password: this.state.password
+    });
   }
 
   render() {
+    console.log(this.props.signinFailed);
+    if (this.props.auth.uid) {
+      return <Redirect to="/" />;
+    } else {
+      console.log("Singin first :(");
+    }
+    console.log("auth", this.props.auth.uid);
+
     return (
       <Container width="100%">
         <NavBar />
@@ -65,4 +80,20 @@ class SignIn extends React.Component {
   }
 }
 
-export default SignIn;
+const mapStateToProps = state => {
+  return {
+    signinFailed: state.auth.signinFailed,
+    auth: state.firebase.auth
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    signIn: credentials => dispatch(signIn(credentials))
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SignIn);

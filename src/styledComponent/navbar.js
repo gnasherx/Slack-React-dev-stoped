@@ -29,13 +29,14 @@ export const Li = styled.li`
   display: inline-block;
 `;
 
-export const A = styled.a`
+export const LinkTitle = styled.p`
   color: #2c2d2e;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
   font-weight: 700;
-  margin-left: 10px;
+  margin: 0 0 0 10px;
+  padding: 0;
   cursor: pointer;
   line-height: 1em;
   padding: 8px 7px 9px;

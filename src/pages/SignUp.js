@@ -5,6 +5,9 @@ import Label from "../containerComponent/Label";
 import { Container, Card, CenterAlign } from "../styledComponent/style";
 import { H1 } from "../styledComponent/typography";
 import NavBar from "../presentationalComp/NavBar";
+import { connect } from "react-redux";
+import { signUp } from "../store/actions/authActions";
+import { Redirect } from "react-router-dom";
 
 class SignUp extends React.Component {
   constructor(props) {
@@ -28,10 +31,15 @@ class SignUp extends React.Component {
 
   signup(e) {
     e.preventDefault();
-   
+    this.props.signUp(this.state);
   }
 
   render() {
+    if (this.props.auth.uid) {
+      return <Redirect to="/" />;
+    } else {
+      console.log("Singin first :(");
+    }
     return (
       <Container width="100%">
         <NavBar />
@@ -95,4 +103,19 @@ class SignUp extends React.Component {
   }
 }
 
-export default SignUp;
+const mapStateToProps = state => {
+  return {
+    auth: state.firebase.auth
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    signUp: credentials => dispatch(signUp(credentials))
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SignUp);

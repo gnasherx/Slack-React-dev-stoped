@@ -4,8 +4,14 @@ import Channels from "../presentationalComp/Channels";
 import Header from "../presentationalComp/Header";
 import Input from "../presentationalComp/Input";
 import Messages from "../presentationalComp/Messages";
+import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 
-const Home = () => {
+const Home = ({ auth }) => {
+  if (!auth.uid) {
+    return <Redirect to="/signin" />;
+  }
+
   return (
     <div className="app-layout">
       <div className="teams box">
@@ -29,4 +35,10 @@ const Home = () => {
   );
 };
 
-export default Home;
+const mapStateToProps = state => {
+  return {
+    auth: state.firebase.auth
+  };
+};
+
+export default connect(mapStateToProps)(Home);
