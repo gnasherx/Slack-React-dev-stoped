@@ -10,18 +10,25 @@ class SignUp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      name: "",
       team: "",
       project: "",
       email: "",
       password: ""
     };
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.signup = this.signup.bind(this);
   }
 
   handleInputChange(e) {
     this.setState({
       [e.target.name]: e.target.value
     });
+  }
+
+  signup(e) {
+    e.preventDefault();
+   
   }
 
   render() {
@@ -33,6 +40,15 @@ class SignUp extends React.Component {
           <H1 size="28px" weight="900" margin="0 auto 40px">
             🎉 Start with a new team 🎉
           </H1>
+          <Label title="Your name" marginBottom="8px" />
+          <InputBox
+            inputType="text"
+            name="name"
+            value={this.state.name}
+            onChange={this.handleInputChange}
+            marginBottom="20px"
+            placeholder=""
+          />
           <Label title="Team name" marginBottom="8px" />
           <InputBox
             inputType="text"
@@ -69,7 +85,9 @@ class SignUp extends React.Component {
             placeholder=""
           />
           <CenterAlign>
-            <Button>Create Team</Button>
+            <Button onClick={this.signup} margin="20px">
+              Create Team
+            </Button>
           </CenterAlign>
         </Card>
       </Container>

@@ -14,7 +14,7 @@ const Home = () => {
       <div className="channels ">
         <Channels />
       </div>
-      <div className="header box">
+      <div className="header ">
         <Header />
       </div>
       <div className="messages ">

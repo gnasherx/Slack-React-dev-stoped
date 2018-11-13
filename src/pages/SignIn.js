@@ -14,12 +14,17 @@ class SignIn extends React.Component {
       password: ""
     };
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.login = this.login.bind(this);
   }
 
   handleInputChange(e) {
     this.setState({
       [e.target.name]: e.target.value
     });
+  }
+
+  login(e) {
+    e.preventDefault();
   }
 
   render() {
@@ -50,7 +55,9 @@ class SignIn extends React.Component {
             placeholder=""
           />
           <CenterAlign>
-            <Button>Get Started</Button>
+            <Button onClick={this.login} margin="20px">
+              Get Started
+            </Button>
           </CenterAlign>
         </Card>
       </Container>

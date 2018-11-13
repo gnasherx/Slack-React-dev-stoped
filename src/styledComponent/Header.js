@@ -5,13 +5,16 @@ export const HeaderContainer = styled.div`
   flex-grow: 1;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 1rem;
 `;
 
 export const HeaderContent = styled.div`
   display: flex;
+  width: 100%;
+  flex: 1;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: ${props => props.justifyContent};
   align-items: center;
   vertical-align: middle;
   margin: 0 0 4px 0;

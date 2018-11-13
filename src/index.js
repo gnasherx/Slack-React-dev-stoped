@@ -6,16 +6,27 @@ import Home from "../src/pages/Home";
 import SignIn from "../src/pages/SignIn";
 import SignUp from "../src/pages/SignUp";
 
-function App() {
-  return (
-    <BrowserRouter>
-      <Switch>
-        <Route exact path="/signin" component={SignIn} />
-        <Route exact path="/signup" component={SignUp} />
-        <Route exact path="/" component={Home} />
-      </Switch>
-    </BrowserRouter>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: {}
+    };
+  }
+
+  render() {
+    const user = this.state.user;
+
+    return (
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/signin" component={SignIn} />
+          <Route exact path="/signup" component={SignUp} />
+          <Route exact path="/" component={Home} />
+        </Switch>
+      </BrowserRouter>
+    );
+  }
 }
 
 const rootElement = document.getElementById("root");

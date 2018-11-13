@@ -3,11 +3,11 @@ import styled from "styled-components";
 
 const ButtonContainer = styled.button`
   padding: 12px 22px 12px 22px;
-  margin: 20px;
+  margin: ${props => props.margin || 0};
   outline: none;
   border-radius: 4px;
   border: none;
-  background-color: #3f46ad;
+  background-color: ${props => props.bgColor || "#3f46ad"};
   color: #fff;
   font-size: 18px;
   cursor: pointer;
@@ -20,8 +20,12 @@ const ButtonContainer = styled.button`
   }
 `;
 
-export const Button = ({ onClick, children }) => {
-  return <ButtonContainer onClick={onClick}>{children}</ButtonContainer>;
+export const Button = ({ onClick, children, margin, bgColor }) => {
+  return (
+    <ButtonContainer onClick={onClick} margin={margin} bgColor={bgColor}>
+      {children}
+    </ButtonContainer>
+  );
 };
 
 // Todo => make two types of button, fill and ouline
