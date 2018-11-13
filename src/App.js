@@ -4,7 +4,7 @@ import Home from "./pages/Home";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import { connect } from "react-redux";
-// import { isUserSignedIn } from "./store/actions/authActions";
+import NewTeam from "./pages/NewTeam";
 
 class App extends React.Component {
   constructor(props) {
@@ -23,6 +23,7 @@ class App extends React.Component {
           <Route exact path="/signin" component={SignIn} />
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/" component={Home} />
+          <Route exact path="/new-team" component={NewTeam} />
         </Switch>
       </BrowserRouter>
     );
