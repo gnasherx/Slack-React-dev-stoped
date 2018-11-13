@@ -5,6 +5,10 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Home from "../src/pages/Home";
 import SignIn from "../src/pages/SignIn";
 import SignUp from "../src/pages/SignUp";
+import { createStore } from "redux";
+import { Provider } from "react-redux";
+import rootReducer from "./store/reducers";
+const store = createStore(rootReducer);
 
 class App extends React.Component {
   constructor(props) {
@@ -30,4 +34,9 @@ class App extends React.Component {
 }
 
 const rootElement = document.getElementById("root");
-ReactDOM.render(<App />, rootElement);
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  rootElement
+);
