@@ -19,6 +19,10 @@ const teamReducer = (state = initialState, action) => {
     case "FETACH_TEAMS_FAILED":
       console.log("Failed to get all teams");
       return state;
+    case "SET_TEAM_INDEX":
+      console.log("Team index: ", action.index);
+      return state;
+
     default:
       return state;
   }

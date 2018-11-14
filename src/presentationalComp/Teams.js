@@ -4,6 +4,7 @@ import { fetchTeams } from "../store/actions/teamActions";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import Plus from "../assets/icons/Plus.svg";
+import { setTeamIndex } from "../store/actions/teamActions";
 
 class Teams extends React.Component {
   constructor(props) {
@@ -21,14 +22,20 @@ class Teams extends React.Component {
         name={team.teamname}
         coverpic={team.coverpic}
         imgsize="50px"
-        marginTop= "0"
+        marginTop="0"
+        handleTeamClick={() => this.props.handleTeamClick(index)}
       />
     ));
     return (
       <div>
         {renderTeams}
         <Link to="/new-team">
-          <TeamIcon name="New" coverpic={Plus} imgsize="30px" marginTop="11px"/>
+          <TeamIcon
+            name="New"
+            coverpic={Plus}
+            imgsize="30px"
+            marginTop="11px"
+          />
         </Link>
       </div>
     );
@@ -44,7 +51,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchTeams: currentUser => dispatch(fetchTeams(currentUser))
+    fetchTeams: currentUser => dispatch(fetchTeams(currentUser)),
+    handleTeamClick: teamIndex => dispatch(setTeamIndex(teamIndex))
   };
 };
 

@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+export const SingleTeam = styled.div`
+  cursor: pointer;
+`;
+
 export const TeamIconContainer = styled.div`
   align-items: center;
   display: flex;
@@ -15,6 +19,13 @@ export const TeamIconImage = styled.div`
   border-radius: 4px;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.03), 0 1px 0 rgba(0, 0, 0, 0.05),
     0 1px 3px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    box-shadow: inset 0 0 0 1px rgba(44, 45, 48, 0.3),
+      0 1px 4px rgba(44, 45, 48, 0.2);
+    border-radius: 10px;
+    transition: all 75ms ease-in-out;
+  }
 `;
 
 export const P = styled.p`

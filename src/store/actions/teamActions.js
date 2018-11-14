@@ -46,3 +46,10 @@ export const fetchTeams = currentUser => {
       });
   };
 };
+
+export const setTeamIndex = index => {
+  return (dispatch, getState, { getFirestore }) => {
+    // const firestore = getFirestore();
+    dispatch({ type: "SET_TEAM_INDEX", index });
+  };
+};

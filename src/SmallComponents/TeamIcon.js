@@ -1,13 +1,14 @@
 import React from "react";
 import {
+  SingleTeam,
   TeamIconContainer,
   TeamIconImage,
   P
 } from "../styledComponent/TeamIcon";
 
-const TeamIcon = ({ name, coverpic, imgsize, marginTop }) => {
+const TeamIcon = ({ name, coverpic, imgsize, marginTop, handleTeamClick }) => {
   return (
-    <div>
+    <SingleTeam onClick={handleTeamClick}>
       <TeamIconContainer>
         <TeamIconImage>
           <img
@@ -19,7 +20,7 @@ const TeamIcon = ({ name, coverpic, imgsize, marginTop }) => {
         </TeamIconImage>
       </TeamIconContainer>
       <P>{name}</P>
-    </div>
+    </SingleTeam>
   );
 };
 
