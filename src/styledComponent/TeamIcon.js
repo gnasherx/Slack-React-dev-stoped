@@ -22,3 +22,28 @@ export const P = styled.p`
   color: #fff;
   margin: 4px 0px 20px 0px;
 `;
+
+// New team
+export const TeamContainer = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: row;
+  width: 100%;
+`;
+
+export const CoverPic = styled.div`
+  height: 192px;
+  width: 192px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.03), 0 1px 0 rgba(0, 0, 0, 0.05),
+    0 1px 3px rgba(0, 0, 0, 0.1);
+  margin: 0 20px 20px 0;
+`;
+
+export const VerticalAlign = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+`;
