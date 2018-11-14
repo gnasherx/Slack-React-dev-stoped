@@ -12,6 +12,7 @@ import Label from "../containerComponent/Label";
 import { Button } from "../containerComponent/Button";
 import { connect } from "react-redux";
 import { createTeam } from "../store/actions/teamActions.js";
+import { Redirect } from "react-router-dom";
 
 class NewTeam extends React.Component {
   constructor(props) {
@@ -45,6 +46,10 @@ class NewTeam extends React.Component {
   };
 
   render() {
+    // if (this.props.auth.uid) {
+    //   return <Redirect to="/" />;
+    // }
+
     return (
       <div>
         <Container width="100%">

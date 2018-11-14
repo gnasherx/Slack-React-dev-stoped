@@ -44,7 +44,7 @@ class SignUp extends React.Component {
 
         <Card padding="60px" width="35%">
           <H1 size="28px" weight="900" margin="0 auto 40px">
-            Start with a new team
+            Signup
           </H1>
           <Label title="Your name" marginBottom="8px" />
           <InputBox
@@ -74,8 +74,8 @@ class SignUp extends React.Component {
             placeholder=""
           />
           <CenterAlign>
-            <Button onClick={this.signup} margin="20px">
-              Create Team
+            <Button onClick={this.signup} margin="20px 0 0 0">
+              Create account
             </Button>
           </CenterAlign>
         </Card>

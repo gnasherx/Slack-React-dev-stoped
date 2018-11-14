@@ -70,7 +70,7 @@ class SignIn extends React.Component {
             placeholder=""
           />
           <CenterAlign>
-            <Button onClick={this.login} margin="20px">
+            <Button onClick={this.login} margin="20px 0 0 0">
               Get Started
             </Button>
           </CenterAlign>
