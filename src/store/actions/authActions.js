@@ -12,9 +12,7 @@ export const signUp = credentials => {
           .doc(response.user.uid)
           .set({
             name: credentials.name,
-            email: credentials.email,
-            team: credentials.team,
-            project: credentials.project
+            email: credentials.email
           });
       })
       .then(() => {

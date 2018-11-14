@@ -49,7 +49,7 @@ class SignIn extends React.Component {
 
         <Card padding="60px" width="35%">
           <H1 size="28px" weight="900" margin="0 auto 40px">
-            👋 Welcome, Do something great 😇
+            Welcome
           </H1>
           <Label title="Email" marginBottom="8px" />
           <InputBox

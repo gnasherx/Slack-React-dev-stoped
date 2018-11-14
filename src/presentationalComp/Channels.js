@@ -5,8 +5,22 @@ import { Title, TitleContainer } from "../styledComponent/SingleChannel";
 import AddChannel from "../assets/icons/AddChannel.svg";
 import AddThreads from "../assets/icons/AllThreads.svg";
 import ChannelHeader from "../SmallComponents/ChannelHeader";
+import { singleChannelClick } from "../store/actions/channelActions";
+import { connect } from "react-redux";
 
-const Channels = () => {
+const allChannels = ["Introduction", "Marketing", "Design", "Help"];
+
+const Channels = props => {
+  let singleChannel = allChannels.map((channel, index) => {
+    return (
+      <SingleChannel
+        key={index}
+        channel={channel}
+        onChannelClick={() => props.onChannelClick(index)}
+      />
+    );
+  });
+
   return (
     <div>
       <ChannelHeader />
@@ -25,9 +39,18 @@ const Channels = () => {
         <Title>Channels</Title>
         <img src={AddChannel} alt="Plus Icon" style={{ cursor: "pointer" }} />
       </TitleContainer>
-      <SingleChannel />
+      {singleChannel}
     </div>
   );
 };
 
-export default Channels;
+const mapDispatchToProps = dispatch => {
+  return {
+    onChannelClick: index => dispatch(singleChannelClick(index))
+  };
+};
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Channels);

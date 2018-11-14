@@ -6,25 +6,13 @@ import {
 } from "../styledComponent/SingleChannel";
 import Hash from "../assets/icons/Hash.svg";
 
-const SingleChannel = () => {
+const SingleChannel = ({ channel, onChannelClick }) => {
   return (
-    <ChannelContainer>
+    <ChannelContainer onClick={onChannelClick}>
       <ChannelItem>
         <ChannelContent>
           <img src={Hash} alt="hash" style={{ marginRight: "6px" }} />
-          Design
-        </ChannelContent>
-      </ChannelItem>
-      <ChannelItem>
-        <ChannelContent>
-          <img src={Hash} alt="hash" style={{ marginRight: "6px" }} />
-          Introduction
-        </ChannelContent>
-      </ChannelItem>
-      <ChannelItem>
-        <ChannelContent>
-          <img src={Hash} alt="hash" style={{ marginRight: "6px" }} />
-          Help
+          {channel}
         </ChannelContent>
       </ChannelItem>
     </ChannelContainer>
