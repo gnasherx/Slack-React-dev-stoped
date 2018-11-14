@@ -3,6 +3,7 @@ import TeamIcon from "../SmallComponents/TeamIcon";
 import { fetchTeams } from "../store/actions/teamActions";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import Plus from "../assets/icons/Plus.svg";
 
 class Teams extends React.Component {
   constructor(props) {
@@ -15,13 +16,19 @@ class Teams extends React.Component {
 
   render() {
     let renderTeams = this.props.teamsData.map((team, index) => (
-      <TeamIcon key={index} name={team.teamname} coverpic={team.coverpic} />
+      <TeamIcon
+        key={index}
+        name={team.teamname}
+        coverpic={team.coverpic}
+        imgsize="50px"
+        marginTop= "0"
+      />
     ));
     return (
       <div>
         {renderTeams}
         <Link to="/new-team">
-          <p>New</p>
+          <TeamIcon name="New" coverpic={Plus} imgsize="30px" marginTop="11px"/>
         </Link>
       </div>
     );

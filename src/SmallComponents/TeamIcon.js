@@ -5,16 +5,16 @@ import {
   P
 } from "../styledComponent/TeamIcon";
 
-const TeamIcon = ({ name, coverpic }) => {
+const TeamIcon = ({ name, coverpic, imgsize, marginTop }) => {
   return (
     <div>
       <TeamIconContainer>
         <TeamIconImage>
           <img
             src={coverpic}
-            width="50px"
-            height="50px"
-            style={{ borderRadius: "4px" }}
+            width={imgsize}
+            height={imgsize}
+            style={{ borderRadius: "4px", marginTop: marginTop }}
           />
         </TeamIconImage>
       </TeamIconContainer>

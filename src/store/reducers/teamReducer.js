@@ -14,13 +14,7 @@ const teamReducer = (state = initialState, action) => {
       console.log("Got all teams successfully");
       return {
         ...state,
-        teamsData: [
-          ...state.teamsData,
-          {
-            teamname: action.teamsData.teamname,
-            coverpic: action.teamsData.coverpic
-          }
-        ]
+        teamsData: action.teamsData
       };
     case "FETACH_TEAMS_FAILED":
       console.log("Failed to get all teams");

@@ -31,9 +31,13 @@ export const fetchTeams = currentUser => {
       .where("uid", "==", currentUser)
       .get()
       .then(function(querySnapshot) {
+        let allTeamsOfThisUser = [];
         querySnapshot.forEach(function(doc) {
-          let teamData = doc.data();
-          dispatch({ type: "FETCH_TEAMS_SUCCESS", teamsData: teamData });
+          allTeamsOfThisUser.push(doc.data());
+        });
+        dispatch({
+          type: "FETCH_TEAMS_SUCCESS",
+          teamsData: allTeamsOfThisUser
         });
       })
       .catch(function(error) {
