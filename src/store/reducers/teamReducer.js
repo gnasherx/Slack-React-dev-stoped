@@ -1,5 +1,7 @@
 const initialState = {
-  teamsData: []
+  teamsData: [],
+  tesmSelected: 0,
+  currentTeam: {}
 };
 
 const teamReducer = (state = initialState, action) => {
@@ -21,7 +23,16 @@ const teamReducer = (state = initialState, action) => {
       return state;
     case "SET_TEAM_INDEX":
       console.log("Team index: ", action.index);
-      return state;
+      return {
+        ...state,
+        teamSelected: action.index
+      };
+    case "CURRENTLY_WORKING_WITH_TEAM":
+      console.log("Team selected: ", action.currentTeam.teamname);
+      return {
+        ...state,
+        currentTeam: action.currentTeam
+      };
 
     default:
       return state;

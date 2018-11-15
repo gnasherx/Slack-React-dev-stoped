@@ -12,7 +12,6 @@ import Label from "../containerComponent/Label";
 import { Button } from "../containerComponent/Button";
 import { connect } from "react-redux";
 import { createTeam } from "../store/actions/teamActions.js";
-import { Redirect } from "react-router-dom";
 
 class NewTeam extends React.Component {
   constructor(props) {

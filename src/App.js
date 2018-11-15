@@ -5,6 +5,7 @@ import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import { connect } from "react-redux";
 import NewTeam from "./pages/NewTeam";
+import NewChannel from "./pages/NewChannel";
 
 class App extends React.Component {
   constructor(props) {
@@ -24,6 +25,7 @@ class App extends React.Component {
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/" component={Home} />
           <Route exact path="/new-team" component={NewTeam} />
+          <Route exact path="/new-channel" component={NewChannel} />
         </Switch>
       </BrowserRouter>
     );

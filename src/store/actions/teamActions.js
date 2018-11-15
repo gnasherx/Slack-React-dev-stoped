@@ -53,3 +53,17 @@ export const setTeamIndex = index => {
     dispatch({ type: "SET_TEAM_INDEX", index });
   };
 };
+
+export const getDocumentId = index => {
+  return (dispatch, getState) => {
+    const { firebase, firestore } = getState();
+    let docId = firestore.ordered.teams.filter(
+      doc => doc.uid == firebase.auth.uid
+    );
+    // console.log("===>", docId[index].id, " Name ==>", docId[index].teamname);
+    dispatch({
+      type: "CURRENTLY_WORKING_WITH_TEAM",
+      currentTeam: docId[index]
+    });
+  };
+};

@@ -1,7 +1,6 @@
 const initialState = {
   signupFailed: false,
-  signinFailed: false,
-  user: {}
+  signinFailed: false
 };
 
 const authReducer = (state = initialState, action) => {

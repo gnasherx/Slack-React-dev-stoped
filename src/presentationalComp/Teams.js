@@ -4,7 +4,9 @@ import { fetchTeams } from "../store/actions/teamActions";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import Plus from "../assets/icons/Plus.svg";
-import { setTeamIndex } from "../store/actions/teamActions";
+import { setTeamIndex, getDocumentId } from "../store/actions/teamActions";
+import { firestoreConnect } from "react-redux-firebase";
+import { compose } from "redux";
 
 class Teams extends React.Component {
   constructor(props) {
@@ -52,11 +54,15 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     fetchTeams: currentUser => dispatch(fetchTeams(currentUser)),
-    handleTeamClick: teamIndex => dispatch(setTeamIndex(teamIndex))
+    // handleTeamClick: teamIndex => dispatch(setTeamIndex(teamIndex))
+    handleTeamClick: teamIndex => dispatch(getDocumentId(teamIndex))
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+export default compose(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  ),
+  firestoreConnect([{ collection: "teams" }])
 )(Teams);

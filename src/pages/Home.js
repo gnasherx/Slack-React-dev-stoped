@@ -36,6 +36,7 @@ const Home = ({ auth }) => {
 };
 
 const mapStateToProps = state => {
+  // console.log("Home State: ", state);
   return {
     auth: state.firebase.auth
   };
