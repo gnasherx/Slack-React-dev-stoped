@@ -4,10 +4,14 @@ export const singleChannelClick = index => {
   };
 };
 
-export const createNewChannel = currentUser => {
-  return (dispatch, getState, {getFirestore}) => {
+export const createNewChannel = channelDetails => {
+  return (dispatch, getState, { getFirestore }) => {
     const firestore = getFirestore();
+    const { firebase } = getState();
 
-    
-  }
-}
+    const { newteam } = getState();
+    console.log(newteam);
+    const teamId = newteam.currentTeam.id;
+    console.log("Doc::", teamId);
+  };
+};

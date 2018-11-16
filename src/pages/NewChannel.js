@@ -12,7 +12,8 @@ class NewChannel extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      channelname: ""
+      channelname: "",
+      channelpurpose: ""
     };
     this.handleChannelName = this.handleChannelName.bind(this);
   }
@@ -36,17 +37,31 @@ class NewChannel extends React.Component {
             value={this.state.channelname}
             marginBottom="20px"
           />
+          <Label title="Purpose" marginBottom="8px" />
+          <InputBox
+            type="text"
+            name="channelpurpose"
+            onChange={this.handleChannelName}
+            value={this.state.channelpurpose}
+            marginBottom="20px"
+          />
           <CenterAlign>
             <Button
               margin="20px 0 0 0"
               bgColor="#fff"
               bgHover="#f5f5f5"
               color="#2c2d2e"
+              onClick={() => {
+                this.props.history.push("/");
+              }}
             >
               Cancel
             </Button>
             <Button
-              onClick={this.props.createNewChannel(this.props.auth.uid)}
+              onClick={() => {
+                this.props.createNewChannel(this.state);
+                this.props.history.push("/");
+              }}
               margin="20px 0 0 20px"
               bgColor="#008952"
               bgHover="#025f39"
@@ -61,7 +76,6 @@ class NewChannel extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log("State: ", state);
   return {
     auth: state.firebase.auth
   };
@@ -69,7 +83,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    createNewChannel: currentUser => dispatch(createNewChannel(currentUser))
+    createNewChannel: channelDetails =>
+      dispatch(createNewChannel(channelDetails))
   };
 };
 

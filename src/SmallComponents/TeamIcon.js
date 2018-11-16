@@ -15,6 +15,7 @@ const TeamIcon = ({ name, coverpic, imgsize, marginTop, handleTeamClick }) => {
             src={coverpic}
             width={imgsize}
             height={imgsize}
+            alt={name}
             style={{ borderRadius: "4px", marginTop: marginTop }}
           />
         </TeamIconImage>

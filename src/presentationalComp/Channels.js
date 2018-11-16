@@ -7,6 +7,7 @@ import AddThreads from "../assets/icons/AllThreads.svg";
 import ChannelHeader from "../SmallComponents/ChannelHeader";
 import { singleChannelClick } from "../store/actions/channelActions";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 const allChannels = ["Introduction", "Marketing", "Design", "Help"];
 
@@ -27,7 +28,7 @@ const Channels = props => {
       <TitleContainer justifyContent="flex-start" isHover="true">
         <img
           src={AddThreads}
-          alt="Plus Icon"
+          alt="All Threads"
           style={{ marginRight: "4px", cursor: "pointer" }}
         />
         <Title>All Threads</Title>
@@ -37,12 +38,20 @@ const Channels = props => {
 
       <TitleContainer justifyContent="space-between">
         <Title>Channels</Title>
-        <img src={AddChannel} alt="Plus Icon" style={{ cursor: "pointer" }} />
+        <Link to="/new-channel">
+          <img src={AddChannel} alt="Plus Icon" style={{ cursor: "pointer" }} />
+        </Link>
       </TitleContainer>
       {singleChannel}
     </div>
   );
 };
+
+const mapStateToProps = state => {
+  return {
+    
+  }
+}
 
 const mapDispatchToProps = dispatch => {
   return {

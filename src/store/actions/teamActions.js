@@ -47,23 +47,31 @@ export const fetchTeams = currentUser => {
   };
 };
 
-export const setTeamIndex = index => {
-  return (dispatch, getState, { getFirestore }) => {
-    // const firestore = getFirestore();
-    dispatch({ type: "SET_TEAM_INDEX", index });
-  };
-};
-
 export const getDocumentId = index => {
-  return (dispatch, getState) => {
+  return (dispatch, getState, { getFirestore }) => {
     const { firebase, firestore } = getState();
     let docId = firestore.ordered.teams.filter(
-      doc => doc.uid == firebase.auth.uid
+      doc => doc.uid === firebase.auth.uid
     );
     // console.log("===>", docId[index].id, " Name ==>", docId[index].teamname);
-    dispatch({
-      type: "CURRENTLY_WORKING_WITH_TEAM",
-      currentTeam: docId[index]
-    });
+
+    const firestoreRef = getFirestore();
+
+    firestoreRef
+      .collection("users")
+      .doc(firebase.auth.uid)
+      .update({
+        workingWithTeam: docId[index].id,
+        teamname: docId[index].teamname
+      })
+      .then(() => {
+        dispatch({
+          type: "CURRENTLY_WORKING_WITH_TEAM",
+          currentTeam: docId[index]
+        });
+      })
+      .catch(error => {
+        dispatch({ type: "FALIED_TO_UPDATE_CURRNET_TEAM_DETATILS", error });
+      });
   };
 };

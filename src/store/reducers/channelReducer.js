@@ -10,6 +10,12 @@ const channelReducer = (state = initialState, action) => {
         ...state,
         channelSelectedIndex: action.index
       };
+    case "CHANNEL_CREATED_SUCCESS":
+      console.log("New channel created");
+      return state;
+    case "CHANNEL_CREATION_FAILED":
+      console.log("New channel creation failed: ", action.error);
+      return state;
     default:
       return state;
   }
